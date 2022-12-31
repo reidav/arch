@@ -1,0 +1,34 @@
+From 2869bd8d10ce9636e1cc39d6232fd8da07a5cdc0 Mon Sep 17 00:00:00 2001
+From: darei <darei>
+Date: Fri, 29 Apr 2022 21:11:28 +0200
+Subject: [PATCH] b
+
+---
+ config.def.h | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index dc2943b..aa7a15f 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -70,11 +70,16 @@ static const Layout layouts[] = {
+ /* commands */
+ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
++static const char *roficmd[] = { "rofi", "-show", "run", NULL};
++static const char *rofiecmd[] = { "rofi", "-show", "filebrowser", NULL};
++static const char *duckcmd[] = { "brave", "https://duckduckgo.com", NULL};
+ static const char *termcmd[]  = { "st", NULL };
+ 
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */
+-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
++	{ MODKEY,                       XK_p,      spawn,          {.v = duckcmd } },
++	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
++	{ MODKEY,			                  XK_e,      spawn,          {.v = rofiecmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+-- 
+2.36.0
+

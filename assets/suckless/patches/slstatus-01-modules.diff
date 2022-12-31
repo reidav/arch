@@ -1,0 +1,29 @@
+From 4fae9900f2fcfae7deb7f508cd25dd0793f07b4c Mon Sep 17 00:00:00 2001
+From: darei <darei>
+Date: Sat, 26 Jun 2021 17:53:18 +0200
+Subject: [PATCH] adding modules
+
+---
+ config.def.h | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index 93a875a..85301d3 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -65,5 +65,11 @@ static const char unknown_str[] = "n/a";
+  */
+ static const struct arg args[] = {
+ 	/* function format          argument */
+-	{ datetime, "%s",           "%F %T" },
++	{ battery_perc, "[Bat %s%%] ", "BAT0" },
++	{ disk_perc, "[Disk %s%%] ", "/" },
++	{ cpu_perc, "[CPU %s%%] ", NULL },
++	{ ram_perc, "[RAM %s%%] ", NULL },
++	{ netspeed_rx, "[Down %s%%] ", "wlan0" },
++	{ netspeed_tx, "[Up %s%%] ", "wlan0" },
++	{ datetime, "%s",           "%D %R" },
+ };
+-- 
+2.32.0
+
